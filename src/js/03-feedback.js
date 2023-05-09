@@ -1,4 +1,4 @@
-refs = {
+const refs = {
   form: document.querySelector('.feedback-form'),
   email: document.querySelector('input[name="email"]'),
   message: document.querySelector('textarea[name="message"]'),
