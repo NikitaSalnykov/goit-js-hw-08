@@ -4,7 +4,7 @@ const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 const delay = require('lodash.throttle');
 
-let actualTime = localStorage.getItem("timecode")
+let actualTime = localStorage.getItem("timecode") || 0
   
 player.on('timeupdate', delay((function (data) {
     console.log(data.seconds);

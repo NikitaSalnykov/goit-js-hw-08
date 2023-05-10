@@ -24,15 +24,20 @@ function tracking (event) {
 refs.form.addEventListener('submit', onFormSubmit)
 
 function onFormSubmit(e) {
-  e.preventDefault()
-  
-  e.currentTarget.reset()
-  localStorage.clear("feedback-form-state")
+  if (refs.email.value === null || refs.message.value === null || refs.email.value === '' || refs.message.value === '') {
+    console.log(refs.email.value);
+    alert('There are empty fields')
+  } else {
+    console.log(JSON.parse(localStorage.getItem("feedback-form-state")));
+    e.preventDefault()
+    e.currentTarget.reset()
+    localStorage.clear("feedback-form-state")
+  }
 }
 
 function fillingFields() {
+
   let boofer = JSON.parse(localStorage.getItem("feedback-form-state"))
- 
   if (boofer) {
     refs.email.value = boofer.emailData 
     refs.message.value = boofer.messageData 
